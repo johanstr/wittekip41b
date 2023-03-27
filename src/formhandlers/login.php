@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
     die('Geen toegang');
@@ -22,27 +23,28 @@ try {
     exit(); // die()
 }
 
-// Connectie is geslaagd, dus nu kunnen we de gegevens vastleggen in de database
-$firstname = htmlentities( $_POST['firstname'] );
-$lastname = htmlentities( $_POST['lastname'] );
-$prefix = htmlentities( $_POST['prefix'] );
 $email = htmlentities( $_POST['email'] );
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$password = $_POST['password'];
 
-$sql = "INSERT INTO `users`(`firstname`, `lastname`, `prefix`, `email`, `password`)
-        VALUES(:firstname, :lastname, :prefix, :email, :password)";
+$sql = "SELECT * FROM `users` WHERE `users`.`email` = :email";
 $placeholders = [
-    ':firstname' => $firstname,
-    ':lastname' => $lastname,
-    ':prefix' => $prefix,
-    ':email' => $email,
-    ':password' => $password
+    ':email' => $email
 ];
 
 $db_statement = $db_connection->prepare($sql);
 $db_statement->execute($placeholders);
+$user = $db_statement->fetch(PDO::FETCH_ASSOC);
 
-// Na het succesvol vastleggen in de database laten we de gebruiker
-// terugkeren naar het login scherm
+echo '<pre>';
+print_r($user);
+echo '</pre>';
+
+if(password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['fullname'] = "{$user['firstname']} {$user['prefix']} {$user['lastname'] }";
+    header('location: ../../index.php');
+    exit();
+} 
+
 header('location: ../../login.php');
 exit();
