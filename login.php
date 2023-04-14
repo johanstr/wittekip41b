@@ -4,6 +4,7 @@ session_start();
 $page_title = 'Aanmelden';
 
 @require_once('src/helpers/nav-helpers.php');
+@require_once('src/helpers/auth-helpers.php');
 @require_once('src/templates/bovenstukhtml.php');
 ?>
 

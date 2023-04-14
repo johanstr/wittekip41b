@@ -1,5 +1,11 @@
-    </main>    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+   </main>    
+   
+   <?php if($page_title == 'Home'): ?>
+      <script src="js/index.js"></script>
+   <?php endif; ?>
+
+   <?php if($page_title == 'Winkelwagen'): ?>
+      <script src="js/shoppingcart.js"></script>
+   <?php endif; ?>
 </body>
 </html>
