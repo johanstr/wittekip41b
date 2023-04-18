@@ -12,11 +12,11 @@ $page_title = 'Home';
 ?>
 
 <div class="shop-container">
-   
+
    <!-- Moet herhaald worden voor ieder product in onze webshop -->
    <div class="product-card">
       <h1 class="product-title">Titel</h1>
-      <img src="" class="product-image" alt="" />
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
       <div class="product-description">
          Beschrijving
       </div>
@@ -33,6 +33,107 @@ $page_title = 'Home';
       </section>
    </div>
    <!-- Einde herhaling product weergave -->
+   <!-- Moet herhaald worden voor ieder product in onze webshop -->
+   <div class="product-card">
+      <h1 class="product-title">Titel</h1>
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
+      <div class="product-description">
+         Beschrijving
+      </div>
+      <section>
+         <!-- data-product_id is een attribuut waarin we de ID van het product opslaan
+               op de iedere button moeten we kunnen klikken -->
+         <button class="product-buy-btn" data-product_id="">
+                  <i class="las la-cart-arrow-down"></i> Kopen
+         </button>
+
+         <div class="product-price">
+                  &euro; 0.00
+         </div>
+      </section>
+   </div>
+   <!-- Einde herhaling product weergave -->
+   <!-- Moet herhaald worden voor ieder product in onze webshop -->
+   <div class="product-card">
+      <h1 class="product-title">Titel</h1>
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
+      <div class="product-description">
+         Beschrijving
+      </div>
+      <section>
+         <!-- data-product_id is een attribuut waarin we de ID van het product opslaan
+               op de iedere button moeten we kunnen klikken -->
+         <button class="product-buy-btn" data-product_id="">
+                  <i class="las la-cart-arrow-down"></i> Kopen
+         </button>
+
+         <div class="product-price">
+                  &euro; 0.00
+         </div>
+      </section>
+   </div>
+   <!-- Einde herhaling product weergave -->
+   <!-- Moet herhaald worden voor ieder product in onze webshop -->
+   <div class="product-card">
+      <h1 class="product-title">Titel</h1>
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
+      <div class="product-description">
+         Beschrijving
+      </div>
+      <section>
+         <!-- data-product_id is een attribuut waarin we de ID van het product opslaan
+               op de iedere button moeten we kunnen klikken -->
+         <button class="product-buy-btn" data-product_id="">
+                  <i class="las la-cart-arrow-down"></i> Kopen
+         </button>
+
+         <div class="product-price">
+                  &euro; 0.00
+         </div>
+      </section>
+   </div>
+   <!-- Einde herhaling product weergave -->
+   <!-- Moet herhaald worden voor ieder product in onze webshop -->
+   <div class="product-card">
+      <h1 class="product-title">Titel</h1>
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
+      <div class="product-description">
+         Beschrijving
+      </div>
+      <section>
+         <!-- data-product_id is een attribuut waarin we de ID van het product opslaan
+               op de iedere button moeten we kunnen klikken -->
+         <button class="product-buy-btn" data-product_id="">
+                  <i class="las la-cart-arrow-down"></i> Kopen
+         </button>
+
+         <div class="product-price">
+                  &euro; 0.00
+         </div>
+      </section>
+   </div>
+   <!-- Einde herhaling product weergave -->
+   <!-- Moet herhaald worden voor ieder product in onze webshop -->
+   <div class="product-card">
+      <h1 class="product-title">Titel</h1>
+      <img src="img/product_placeholder.png" class="product-image" alt="" />
+      <div class="product-description">
+         Beschrijving
+      </div>
+      <section>
+         <!-- data-product_id is een attribuut waarin we de ID van het product opslaan
+               op de iedere button moeten we kunnen klikken -->
+         <button class="product-buy-btn" data-product_id="">
+                  <i class="las la-cart-arrow-down"></i> Kopen
+         </button>
+
+         <div class="product-price">
+                  &euro; 0.00
+         </div>
+      </section>
+   </div>
+   <!-- Einde herhaling product weergave -->
+   
    
 </div>
 
