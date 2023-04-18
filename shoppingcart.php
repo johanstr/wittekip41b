@@ -21,7 +21,7 @@ $page_title = 'Winkelwagen';
       </tr>
    </thead>
       <tbody>
-         
+         <!-- Moet herhaald worden voor alle items in de winkelwagen -->
          <tr>
             <td style="padding: 5px; text-align: center;">1</td>
             <td style="padding: 5px; text-align: center;">
@@ -32,13 +32,16 @@ $page_title = 'Winkelwagen';
             <td style="padding: 5px; text-align: center;">1</td>
             <td style="padding: 5px; text-align: right;">&euro; 0.00 ?></td>
          </tr>
-         
+         <!-- Einde herhaling items in de winkelwagen -->
+
+         <!-- Totaal berekenen van alle items in de winkelwagen en hieronder tonen -->
          <tr>
             <td colspan="5" style="padding: 5px; text-align: right; background-color: black; color: white;">Te betalen</td>
             <td style="padding: 5px; text-align: right; background-color: black; color: red; font-weight: bold;">
                &euro; 0.00
             </td>
          </tr>
+         <!-- Einde winkelwagen totaal -->
       </tbody>
 </table>
 
