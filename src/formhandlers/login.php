@@ -1,50 +1,44 @@
 <?php
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] != 'POST') {
-    die('Geen toegang');
-}
-
-// Database credentials
-$dbHost = '127.0.0.1'; 
-$dbName = 'wittekip41b';
+// Globale variabelen nodig om een connectie te maken
+// met de databaseserver
+$dbHost = '127.0.0.1';
+$dbName = 'wittekip';
 $dbUser = 'root';
-$dbPass = 'root';
+$dbPassword = 'root';
 
-// Globale variabelen voor het werken met de database
-$db_connection = null;
-$db_statement = null;
+// Globale variabelen om te kunnen werken met de database
+// via PDO
+$dbConnection = null; // NUL, 0, ''
+$dbStatement = null;
 
-// Connectie maken met de database
 try {
-    $db_connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+   $dbConnection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
 } catch(PDOException $error) {
-    header('location: ../../register.php');
-    exit(); // die()
+   header('location: ../../index.php');
+   exit();
 }
 
 $email = htmlentities( $_POST['email'] );
 $password = $_POST['password'];
 
 $sql = "SELECT * FROM `users` WHERE `users`.`email` = :email";
-$placeholders = [
-    ':email' => $email
-];
+$placeholders = [ ':email' => $email ];
 
-$db_statement = $db_connection->prepare($sql);
-$db_statement->execute($placeholders);
-$user = $db_statement->fetch(PDO::FETCH_ASSOC);
+$dbStatement = $dbConnection->prepare($sql);
+$dbStatement->execute($placeholders);
 
-echo '<pre>';
-print_r($user);
-echo '</pre>';
+$user = $dbStatement->fetch(PDO::FETCH_ASSOC);
 
 if(password_verify($password, $user['password'])) {
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['fullname'] = "{$user['firstname']} {$user['prefix']} {$user['lastname'] }";
-    header('location: ../../index.php');
-    exit();
+   // Login is succesvol
+   $_SESSION['user_id'] = $user['id'];
+   $_SESSION['username'] = $user['username'];
+   header('location: ../../index.php');
+   exit();
 } 
 
 header('location: ../../login.php');
 exit();
+

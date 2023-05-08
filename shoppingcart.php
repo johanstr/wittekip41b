@@ -6,6 +6,12 @@ $page_title = 'Winkelwagen';
 @require_once('src/helpers/nav-helpers.php');
 @require_once('src/helpers/auth-helpers.php');
 
+$cart_items = json_decode($_COOKIE['wittekip_shoppingcart']);
+$cart_total = 0.00;
+foreach($cart_items as $item) {
+   $cart_total += ($item->price * $item->amount);
+}
+
 @include_once('src/templates/bovenstukhtml.php');
 ?>
 
@@ -21,22 +27,22 @@ $page_title = 'Winkelwagen';
       </tr>
    </thead>
       <tbody>
-         
+         <?php foreach($cart_items as $item): ?>
          <tr>
-            <td style="padding: 5px; text-align: center;">1</td>
+            <td style="padding: 5px; text-align: center;"><?= $item->id ?></td>
             <td style="padding: 5px; text-align: center;">
-               <img style="width: 40px; height: 40px;" src="" alt="" />
+               <img style="width: 40px; height: 40px;" src="<?= $item->image ?>" alt="" />
             </td>
-            <td style="padding: 5px; text-align: left;">titel</td>
-            <td style="padding: 5px; text-align: right;">&euro; 0.00</td>
-            <td style="padding: 5px; text-align: center;">1</td>
-            <td style="padding: 5px; text-align: right;">&euro; 0.00 ?></td>
+            <td style="padding: 5px; text-align: left;"><?= $item->title ?></td>
+            <td style="padding: 5px; text-align: right;">&euro; <?= $item->price ?></td>
+            <td style="padding: 5px; text-align: center;"><?= $item->amount ?></td>
+            <td style="padding: 5px; text-align: right;">&euro; <?= sprintf("%4.2f",$item->price * $item->amount) ?></td>
          </tr>
-         
+         <?php endforeach; ?>
          <tr>
             <td colspan="5" style="padding: 5px; text-align: right; background-color: black; color: white;">Te betalen</td>
             <td style="padding: 5px; text-align: right; background-color: black; color: red; font-weight: bold;">
-               &euro; 0.00
+               &euro; <?= sprintf("%6.2f", $cart_total) ?>
             </td>
          </tr>
       </tbody>

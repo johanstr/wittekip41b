@@ -9,10 +9,10 @@
  */
 function isLoggedIn(): bool
 {
-    if(isset($_SESSION['user_id']) && isset($_SESSION['username']))
-        return true;
+   if(isset($_SESSION['user_id']) && session_status() == PHP_SESSION_ACTIVE)
+      return true;
 
-    return false;
+   return false;
 }
 
 /**
@@ -25,10 +25,10 @@ function isLoggedIn(): bool
  */
 function getLoggedInUsername(): string 
 {
-    if(isset($_SESSION['username']) && session_status() == PHP_SESSION_ACTIVE)
-        return $_SESSION['username'];
+   if(isset($_SESSION['username']) && session_status() == PHP_SESSION_ACTIVE)
+      return $_SESSION['username'];
 
-    return '';
+   return '';
 }
 
 
@@ -42,8 +42,8 @@ function getLoggedInUsername(): string
  */
 function getLoggedInUserID(): int
 {
-    if(isset($_SESSION['user_id']) && session_status() == PHP_SESSION_ACTIVE)
-        return intval($_SESSION['user_id']);
+   if(isset($_SESSION['user_id']) && session_status() == PHP_SESSION_ACTIVE)
+      return intval($_SESSION['user_id']);
 
-    return 0;
+   return 0;
 }
