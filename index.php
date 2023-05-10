@@ -64,6 +64,7 @@ $products = $dbStatement->fetchAll(PDO::FETCH_ASSOC);
          <button class="product-buy-btn" data-product_id="<?= $product['id'] ?>">
                   <i class="las la-cart-arrow-down"></i> Kopen
          </button>
+
          <div class="product-price">
             <!-- We injecteren hier de prijs van het product -->
             &euro; <?= $product['price'] ?>

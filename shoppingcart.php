@@ -45,6 +45,7 @@ foreach($cart_items as $item) {
                &euro; <?= sprintf("%6.2f", $cart_total) ?>
             </td>
          </tr>
+         <!-- Einde winkelwagen totaal -->
       </tbody>
 </table>
 
